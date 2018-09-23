@@ -54,3 +54,11 @@
 	path = layers/meta-qa
 	url = https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git
 	branch = rocko
+[submodule "layers/meta-linaro"]
+	path = layers/meta-linaro
+	url = git://git.linaro.org/openembedded/meta-linaro.git
+	branch = rocko
+[submodule "layers/meta-renesas"]
+	path = layers/meta-renesas
+	url = https://github.com/renesas-rcar/meta-renesas
+	branch = rocko

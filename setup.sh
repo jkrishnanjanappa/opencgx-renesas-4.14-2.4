@@ -50,7 +50,11 @@ LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;branch=rocko \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=rocko;layer=meta-qa-framework \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=rocko;layer=meta-qa-testsuites \
-MACHINE@qemux86-64 \
+LAYER@https://git.linaro.org/openembedded/meta-linaro.git;branch=rocko;layer=meta-optee \
+LAYER@https://github.com/renesas-rcar/meta-renesas.git;branch=rocko;layer=meta-rcar-gen3 \
+MACHINE@m3ulcb \
+OPTEEMACHINE@rcar \
+OPTEEOUTPUTMACHINE@rcar \
 DISTRO@mvista-cgx \
 SOURCE@https://github.com/MontaVista-OpenSourceTechnology/linux-mvista-2.4;branch=mvl-4.14/msd.cgx;meta=MV_KERNEL \
 SOURCE@https://github.com/MontaVista-OpenSourceTechnology/yocto-kernel-cache;branch=yocto-4.14;meta=MV_KERNELCACHE \
@@ -146,6 +150,14 @@ for config in $REPO_CONFIG; do
     fi
     if [ "$VAR" = "DISTRO" ] ; then
           echo "DISTRO ?= '$VAL'" >> conf/local-content.conf
+          echo >> conf/local-content.conf
+    fi
+    if [ "$VAR" = "OPTEEMACHINE" ] ; then
+          echo "OPTEEMACHINE ?= '$VAL'" >> conf/local-content.conf
+          echo >> conf/local-content.conf
+    fi
+    if [ "$VAR" = "OPTEEOUTPUTMACHINE" ] ; then
+          echo "OPTEEOUTPUTMACHINE ?= '$VAL'" >> conf/local-content.conf
           echo >> conf/local-content.conf
     fi
     if [ "$VAR" = "SOURCE" ] ; then
